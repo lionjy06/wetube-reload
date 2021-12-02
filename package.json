@@ -1,0 +1,25 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "clone-coding",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lionjy06/wetube-reload.git"
+  },
+  "author": "jin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lionjy06/wetube-reload/issues"
+  },
+  "homepage": "https://github.com/lionjy06/wetube-reload#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4"
+  }
+}
