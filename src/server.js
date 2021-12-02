@@ -7,7 +7,7 @@ const handleListening = () => {
 };
 
 const gossipMiddleware = (req, res, next) => {
-  console.log("I am in the middle");
+  console.log(`someone is going to: ${req.url}`);
   next();
 };
 
