@@ -1,6 +1,13 @@
 extends base.pug
-
-
-
+include mixin/video
+ 
 block content 
-  h1 home
+  h1 Home 
+  input(type="text", placeholder="what is your name")
+  button Send
+
+  
+  each potato in videos
+      +video(potato)
+  else 
+    li sorry... nothing was found  
