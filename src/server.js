@@ -11,6 +11,8 @@ const handleListening = () => {
   console.log("server listening on port https://localhost:4000");
 };
 
+app.set("view engine", "pug");
+app.set("views", process.cwd() + "/src/views");
 app.use("/", globalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
