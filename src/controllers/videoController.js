@@ -1,50 +1,49 @@
+let videos = [
+  {
+    title: "first video",
+    rating: 5,
+    comment: 1,
+    createdAt: "2mins ago",
+    views: 1,
+    id: 1,
+  },
+  {
+    title: "second video",
+    rating: 5,
+    comment: 2,
+    createdAt: "2mins ago",
+    views: 59,
+    id: 2,
+  },
+  {
+    title: "thrid video",
+    rating: 5,
+    comment: 2,
+    createdAt: "2mins ago",
+    views: 59,
+    id: 3,
+  },
+];
+
 export const trending = (req, res) => {
-  const videos = [
-    {
-      title: "#1",
-      rating: 5,
-      comment: 2,
-      createdAt: "2mins ago",
-      views: 59,
-      id: 1,
-    },
-    {
-      title: "#2",
-      rating: 5,
-      comment: 2,
-      createdAt: "2mins ago",
-      views: 59,
-      id: 1,
-    },
-    {
-      title: "#3",
-      rating: 5,
-      comment: 2,
-      createdAt: "2mins ago",
-      views: 59,
-      id: 1,
-    },
-  ];
   return res.render("home", { pageTitle: "Home", videos });
 };
 
-export const see = (req, res) => {
-  console.log(`watch video #${req.params.id}`);
-  return res.render("watch", { pageTitle: "Watch" });
+export const watch = (req, res) => {
+  const { id } = req.params;
+  const video = videos[id - 1];
+  return res.render("watch", { pageTitle: `watching ${video.title}`, video });
 };
 
-export const edit = (req, res) => {
-  return res.render("edit", { pageTitle: "Edit" });
+export const getEdit = (req, res) => {
+  const { id } = req.params;
+  const video = videos[id - 1];
+  return res.render("edit", { pageTitle: `Editing ${video.title}`, video });
 };
 
-export const search = (req, res) => {
-  return res.send("search");
-};
-
-export const deleteVideo = (req, res) => {
-  return res.send("delete videos");
-};
-
-export const upload = (req, res) => {
-  return res.send("upload");
+export const postEdit = (req, res) => {
+  const { id } = req.params;
+  const { title } = req.body;
+  videos[id - 1].title = title;
+  return res.redirect(`/videos/${id}`);
 };
