@@ -6,7 +6,11 @@ block content
   input(type="text", placeholder="what is your name")
   button Send
 
-  
+  nav 
+    ul 
+      li 
+        a(href="/videos/upload") Upload Video
+
   each potato in videos
       +video(potato)
   else 
